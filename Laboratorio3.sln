@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Laboratorio3", "Laboratorio3\Laboratorio3.csproj", "{2AA71563-4B9C-45EF-8602-F437528B409F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibroContable", "LibroContable\LibroContable.csproj", "{B55842A3-53D0-4CBC-9F59-09EE8E82930E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2AA71563-4B9C-45EF-8602-F437528B409F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2AA71563-4B9C-45EF-8602-F437528B409F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2AA71563-4B9C-45EF-8602-F437528B409F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2AA71563-4B9C-45EF-8602-F437528B409F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B55842A3-53D0-4CBC-9F59-09EE8E82930E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B55842A3-53D0-4CBC-9F59-09EE8E82930E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B55842A3-53D0-4CBC-9F59-09EE8E82930E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B55842A3-53D0-4CBC-9F59-09EE8E82930E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
