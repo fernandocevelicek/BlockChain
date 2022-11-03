@@ -8,9 +8,9 @@ namespace LibroContable.Entidades
 {
     public class Asiento
     {
-        public int Id { get; set; }
-        public String concepto { get; set; }
-        public DateTime fecha { get; set; }
-        public List<MovimientoCuenta> movimientos { get; set; }
+        public long Id { get; set; }
+        public String Concepto { get; set; }
+        public DateTime Fecha { get; set; }
+        public List<MovimientoCuenta> Movimientos { get; set; }
     }
 }

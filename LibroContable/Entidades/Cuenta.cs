@@ -10,5 +10,10 @@ namespace LibroContable.Entidades
     {
         public int Codigo { get; set; }
         public String Denominacion { get; set; }
+
+        public override string ToString()
+        {
+            return Codigo + " : " + Denominacion;
+        }
     }
 }

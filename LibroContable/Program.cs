@@ -1,3 +1,6 @@
+using LibroContable.Entidades;
+using LibroContable.Persistencia;
+
 namespace LibroContable
 {
     internal static class Program
@@ -5,8 +8,21 @@ namespace LibroContable
         [STAThread]
         static void Main()
         {
+            CargaInicialCuentas();
+
             ApplicationConfiguration.Initialize();
             Application.Run(new MainView());
+        }
+
+        static void CargaInicialCuentas()
+        {
+            CuentaRepository.Guardar(new Cuenta() { Codigo=1101, Denominacion="CAJA" });
+            CuentaRepository.Guardar(new Cuenta() { Codigo = 1401, Denominacion = "DEUDORES VARIOS" });
+            CuentaRepository.Guardar(new Cuenta() { Codigo = 1501, Denominacion = "MERCADERIAS" });
+            CuentaRepository.Guardar(new Cuenta() { Codigo = 1601, Denominacion = "RODADOS" });
+            CuentaRepository.Guardar(new Cuenta() { Codigo = 1605, Denominacion = "MUEBLES Y UTILES" });
+            CuentaRepository.Guardar(new Cuenta() { Codigo = 1603, Denominacion = "INSTALACIONES" });
+            CuentaRepository.Guardar(new Cuenta() { Codigo = 3101, Denominacion = "CAPITAL SOCIAL" });
         }
     }
 }

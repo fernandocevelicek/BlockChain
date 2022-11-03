@@ -9,5 +9,7 @@ namespace LibroContable.Entidades
     public class MovimientoCuenta
     {
         public Cuenta Cuenta { get; set; }
+        public Double Debe { get; set; }
+        public Double Haber { get; set; }
     }
 }

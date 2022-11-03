@@ -8,7 +8,27 @@ using System.Threading.Tasks;
 
 namespace LibroContable.Persistencia
 {
-    public class LibroDiarioRepository : BaseRepository<LibroDiario>
+    public class LibroDiarioRepository
     {
+
+        public static List<LibroDiario> lista { get; protected set; }
+
+        static LibroDiarioRepository()
+        {
+            if (lista == null)
+            {
+                lista = new List<LibroDiario>();
+            }
+        }
+        
+        public static void Guardar(LibroDiario entity)
+        {
+            lista.Add(entity);
+        }
+
+        public static List<LibroDiario> Consultar()
+        {
+            return lista;
+        }
     }
 }

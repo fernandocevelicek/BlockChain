@@ -38,6 +38,7 @@ namespace LibroContable
             };
 
             CuentaRepository.Guardar(cuenta);
+            this.Close();
         }
     }
 }

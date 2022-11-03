@@ -28,25 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Grilla = new System.Windows.Forms.DataGridView();
             this.BtnAgregarCuenta = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.btnAgregarAsiento = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
+            this.flowLayoutPanelAsientos = new System.Windows.Forms.FlowLayoutPanel();
+            this.asientoListItem1 = new LibroContable.View.AsientoListItem();
+            this.btnConfirmarLibro = new System.Windows.Forms.Button();
+            this.flowLayoutPanelAsientos.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Grilla
-            // 
-            this.Grilla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Grilla.Location = new System.Drawing.Point(23, 229);
-            this.Grilla.Name = "Grilla";
-            this.Grilla.RowTemplate.Height = 25;
-            this.Grilla.Size = new System.Drawing.Size(765, 209);
-            this.Grilla.TabIndex = 4;
             // 
             // BtnAgregarCuenta
             // 
-            this.BtnAgregarCuenta.Location = new System.Drawing.Point(684, 37);
+            this.BtnAgregarCuenta.Location = new System.Drawing.Point(684, 12);
             this.BtnAgregarCuenta.Name = "BtnAgregarCuenta";
             this.BtnAgregarCuenta.Size = new System.Drawing.Size(104, 23);
             this.BtnAgregarCuenta.TabIndex = 5;
@@ -56,32 +49,69 @@
             // 
             // btnAgregarAsiento
             // 
-            this.btnAgregarAsiento.Location = new System.Drawing.Point(684, 76);
+            this.btnAgregarAsiento.Location = new System.Drawing.Point(684, 51);
             this.btnAgregarAsiento.Name = "btnAgregarAsiento";
             this.btnAgregarAsiento.Size = new System.Drawing.Size(104, 23);
             this.btnAgregarAsiento.TabIndex = 6;
             this.btnAgregarAsiento.Text = "Agregar Asiento";
             this.btnAgregarAsiento.UseVisualStyleBackColor = true;
+            this.btnAgregarAsiento.Click += new System.EventHandler(this.btnAgregarAsiento_Click);
+            // 
+            // flowLayoutPanelAsientos
+            // 
+            this.flowLayoutPanelAsientos.AutoScroll = true;
+            this.flowLayoutPanelAsientos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flowLayoutPanelAsientos.Controls.Add(this.asientoListItem1);
+            this.flowLayoutPanelAsientos.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanelAsientos.Location = new System.Drawing.Point(0, 98);
+            this.flowLayoutPanelAsientos.Name = "flowLayoutPanelAsientos";
+            this.flowLayoutPanelAsientos.Size = new System.Drawing.Size(800, 352);
+            this.flowLayoutPanelAsientos.TabIndex = 7;
+            // 
+            // asientoListItem1
+            // 
+            this.asientoListItem1.asiento = null;
+            this.asientoListItem1.Concepto = null;
+            this.asientoListItem1.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.asientoListItem1.Fecha = null;
+            this.asientoListItem1.IdAsiento = null;
+            this.asientoListItem1.Location = new System.Drawing.Point(3, 3);
+            this.asientoListItem1.Movimientos = null;
+            this.asientoListItem1.Name = "asientoListItem1";
+            this.asientoListItem1.Size = new System.Drawing.Size(790, 226);
+            this.asientoListItem1.TabIndex = 0;
+            // 
+            // btnConfirmarLibro
+            // 
+            this.btnConfirmarLibro.Location = new System.Drawing.Point(12, 12);
+            this.btnConfirmarLibro.Name = "btnConfirmarLibro";
+            this.btnConfirmarLibro.Size = new System.Drawing.Size(75, 48);
+            this.btnConfirmarLibro.TabIndex = 8;
+            this.btnConfirmarLibro.Text = "Confirmar Libro";
+            this.btnConfirmarLibro.UseVisualStyleBackColor = true;
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnConfirmarLibro);
+            this.Controls.Add(this.flowLayoutPanelAsientos);
             this.Controls.Add(this.btnAgregarAsiento);
             this.Controls.Add(this.BtnAgregarCuenta);
-            this.Controls.Add(this.Grilla);
             this.Name = "MainView";
             this.Text = "LibroDiario";
-            ((System.ComponentModel.ISupportInitialize)(this.Grilla)).EndInit();
+            this.flowLayoutPanelAsientos.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private DataGridView Grilla;
         private Button BtnAgregarCuenta;
         private PageSetupDialog pageSetupDialog1;
         private Button btnAgregarAsiento;
+        private FlowLayoutPanel flowLayoutPanelAsientos;
+        private View.AsientoListItem asientoListItem1;
+        private Button btnConfirmarLibro;
     }
 }
