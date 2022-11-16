@@ -44,6 +44,7 @@
             this.btnCargarAsiento = new System.Windows.Forms.Button();
             this.lblConcepto = new System.Windows.Forms.Label();
             this.txtConcepto = new System.Windows.Forms.TextBox();
+            this.lblError = new System.Windows.Forms.Label();
             this.gbCargaMovimiento.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridMovimientos)).BeginInit();
             this.SuspendLayout();
@@ -188,11 +189,22 @@
             this.txtConcepto.Size = new System.Drawing.Size(198, 23);
             this.txtConcepto.TabIndex = 7;
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(484, 47);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 21);
+            this.lblError.TabIndex = 9;
+            // 
             // CargaAsientoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblConcepto);
             this.Controls.Add(this.btnCargarAsiento);
             this.Controls.Add(this.txtConcepto);
@@ -226,5 +238,6 @@
         private DataGridViewTextBoxColumn DescripcionCuenta;
         private DataGridViewTextBoxColumn Debe;
         private DataGridViewTextBoxColumn Haber;
+        private Label lblError;
     }
 }

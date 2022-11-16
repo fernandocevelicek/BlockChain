@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LibroContable.Entidades;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Laboratorio3
 {
+    [Serializable]
     internal class Block
     {
 
@@ -18,9 +16,9 @@ namespace Laboratorio3
 
         public String Hash { get; set; }
 
-        public String Data { get; set; }
+        public LibroDiario Data { get; set; }
 
-        public Block(DateTime timeStamp, String previousHash, String data)
+        public Block(DateTime timeStamp, String previousHash, LibroDiario data)
         {
             Index = 0;
             TimeStamp = timeStamp;

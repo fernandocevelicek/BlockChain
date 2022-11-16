@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibroContable.Entidades
 {
+    [Serializable]
     public class Asiento
     {
         public long Id { get; set; }

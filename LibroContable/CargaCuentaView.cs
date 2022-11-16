@@ -31,14 +31,31 @@ namespace LibroContable
 
         private void PersistirCuenta()
         {
-            Cuenta cuenta = new Cuenta()
+            try
             {
-                Codigo = Int32.Parse(txtCodigoCuenta.Text),
-                Denominacion = txtDenominacion.Text
-            };
+                if (string.IsNullOrEmpty(txtCodigoCuenta.Text)) throw new Exception("Debe cargar un codigo");
+                if (string.IsNullOrEmpty(txtDenominacion.Text)) throw new Exception("Debe cargar una denominacion");
 
-            CuentaRepository.Guardar(cuenta);
-            this.Close();
+                Cuenta cuenta = new Cuenta()
+                {
+                    Codigo = Int32.Parse(txtCodigoCuenta.Text),
+                    Denominacion = txtDenominacion.Text
+                };
+
+                lblError.Text = "";
+
+                CuentaRepository.Guardar(cuenta);
+                this.Close();
+            }
+            catch (FormatException ex)
+            {
+                lblError.Text = "Formato Invalido.";
+            }
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+            }
+            
         }
     }
 }

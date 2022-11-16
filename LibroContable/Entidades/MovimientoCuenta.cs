@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibroContable.Entidades
 {
+    [Serializable]
     public class MovimientoCuenta
     {
         public Cuenta Cuenta { get; set; }

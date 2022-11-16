@@ -34,6 +34,7 @@
             this.labelDenominacion = new System.Windows.Forms.Label();
             this.txtCodigoCuenta = new System.Windows.Forms.TextBox();
             this.txtDenominacion = new System.Windows.Forms.TextBox();
+            this.lblError = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCargarCuenta
@@ -88,11 +89,22 @@
             this.txtDenominacion.Size = new System.Drawing.Size(100, 23);
             this.txtDenominacion.TabIndex = 5;
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(244, 76);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 21);
+            this.lblError.TabIndex = 10;
+            // 
             // CargaCuentaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.txtDenominacion);
             this.Controls.Add(this.txtCodigoCuenta);
             this.Controls.Add(this.labelDenominacion);
@@ -114,5 +126,6 @@
         private Label labelDenominacion;
         private TextBox txtCodigoCuenta;
         private TextBox txtDenominacion;
+        private Label lblError;
     }
 }

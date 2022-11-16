@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibroContable.Entidades
 {
+    [Serializable]
     public class LibroDiario
     {
         public DateTime fecha { get; set; }

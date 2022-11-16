@@ -24,63 +24,88 @@ namespace LibroContable
 
         private void btnAgregarMovimiento_Click(object sender, EventArgs e)
         {
-            MovimientoCuenta movimiento = new MovimientoCuenta();
-            if (!string.IsNullOrEmpty(txtDebe.Text))
+            try
             {
-                movimiento.Debe = Double.Parse(txtDebe.Text);
-            } else if (!string.IsNullOrEmpty(txtHaber.Text))
-            {
-                movimiento.Haber = Double.Parse(txtHaber.Text);
-            } else
-            {
-                //TODO: lanzar exception
+                MovimientoCuenta movimiento = new MovimientoCuenta();
+                if (!string.IsNullOrEmpty(txtDebe.Text))
+                {
+                    movimiento.Debe = Double.Parse(txtDebe.Text);
+                }
+                else if (!string.IsNullOrEmpty(txtHaber.Text))
+                {
+                    movimiento.Haber = Double.Parse(txtHaber.Text);
+                }
+                else
+                {
+                    throw new Exception("Indique monto Debe o Haber");
+                }
+
+                Cuenta selectedCuenta = (Cuenta)listBoxCuenta.SelectedItem;
+                if (selectedCuenta == null)
+                {
+                    throw new Exception("Debe seleccionar una cuenta");
+                }
+                movimiento.Cuenta = selectedCuenta;
+
+                movimientos.Add(movimiento);
+                AgregarFilaDataGridMovimientos(movimiento);
+
+                lblError.Text = "";
+                txtDebe.Text = "";
+                txtHaber.Text = "";
+                listBoxCuenta.ClearSelected();
             }
-
-            Cuenta selectedCuenta = (Cuenta)listBoxCuenta.SelectedItem;
-            if (selectedCuenta == null)
+            catch (FormatException ex)
             {
-                //TODO: lanzar exception
-                Console.WriteLine(selectedCuenta);
-                return;
+                lblError.Text = "Formato Invalido.";
             }
-            movimiento.Cuenta = selectedCuenta;
-
-            movimientos.Add(movimiento);
-            AgregarFilaDataGridMovimientos(movimiento);
-
-            txtDebe.Text = "";
-            txtHaber.Text = "";
-            listBoxCuenta.ClearSelected();
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+            }
         }
 
         private void btnCargarAsiento_Click(object sender, EventArgs e)
         {
-            Asiento asiento = new Asiento();
-
-            if(string.IsNullOrEmpty(txtConcepto.Text))
+            try
             {
-                //TODO: lanzar exception
-                return;
-            }
+                Asiento asiento = new Asiento();
 
-            if (movimientos.Count <= 0)
+                if (string.IsNullOrEmpty(txtConcepto.Text))
+                {
+                    throw new Exception("Debe cargar un concepto");
+                }
+
+                if (movimientos.Count <= 0)
+                {
+                    throw new Exception("Debe cargar movimientos");
+                }
+
+                asiento.Concepto = txtConcepto.Text;
+                asiento.Movimientos = movimientos;
+
+                asiento.Fecha = DateTime.Now;
+
+                AsientoRepository.Guardar(asiento);
+
+                lblError.Text = "";
+
+                this.Close();
+            }
+            catch (FormatException ex)
             {
-                //TODO: lanzar exception
-                return;
+                lblError.Text = "Formato Invalido.";
             }
-
-            asiento.Concepto = txtConcepto.Text;
-            asiento.Movimientos = movimientos;
-
-            asiento.Fecha = DateTime.Now;
-            
-            AsientoRepository.Guardar(asiento);
-
-            this.Close();
+            catch (Exception ex)
+            {
+                lblError.Text = ex.Message;
+            }
         }
 
         private void Iniciar()
         {
+            movimientos = new List<MovimientoCuenta>();
+            lblError.Text = "";
             CargarListBoxCuentas();
             CargarDataGridMovimientos();
         }
@@ -95,11 +120,6 @@ namespace LibroContable
 
         private void CargarDataGridMovimientos()
         {
-            if (movimientos == null)
-            {
-                movimientos = new List<MovimientoCuenta>();
-            }
-
             foreach (MovimientoCuenta movimiento in movimientos)
             {
                 AgregarFilaDataGridMovimientos(movimiento);

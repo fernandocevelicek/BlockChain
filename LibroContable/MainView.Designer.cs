@@ -34,6 +34,7 @@
             this.flowLayoutPanelAsientos = new System.Windows.Forms.FlowLayoutPanel();
             this.asientoListItem1 = new LibroContable.View.AsientoListItem();
             this.btnConfirmarLibro = new System.Windows.Forms.Button();
+            this.btnVerBlockchain = new System.Windows.Forms.Button();
             this.flowLayoutPanelAsientos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,18 +84,30 @@
             // 
             // btnConfirmarLibro
             // 
-            this.btnConfirmarLibro.Location = new System.Drawing.Point(12, 12);
+            this.btnConfirmarLibro.Location = new System.Drawing.Point(542, 12);
             this.btnConfirmarLibro.Name = "btnConfirmarLibro";
-            this.btnConfirmarLibro.Size = new System.Drawing.Size(75, 48);
+            this.btnConfirmarLibro.Size = new System.Drawing.Size(111, 62);
             this.btnConfirmarLibro.TabIndex = 8;
             this.btnConfirmarLibro.Text = "Confirmar Libro";
             this.btnConfirmarLibro.UseVisualStyleBackColor = true;
+            this.btnConfirmarLibro.Click += new System.EventHandler(this.btnConfirmarLibro_Click);
+            // 
+            // btnVerBlockchain
+            // 
+            this.btnVerBlockchain.Location = new System.Drawing.Point(4, 12);
+            this.btnVerBlockchain.Name = "btnVerBlockchain";
+            this.btnVerBlockchain.Size = new System.Drawing.Size(178, 62);
+            this.btnVerBlockchain.TabIndex = 9;
+            this.btnVerBlockchain.Text = "Ver Blockchain";
+            this.btnVerBlockchain.UseVisualStyleBackColor = true;
+            this.btnVerBlockchain.Click += new System.EventHandler(this.btnVerBlockchain_Click);
             // 
             // MainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnVerBlockchain);
             this.Controls.Add(this.btnConfirmarLibro);
             this.Controls.Add(this.flowLayoutPanelAsientos);
             this.Controls.Add(this.btnAgregarAsiento);
@@ -113,5 +126,6 @@
         private FlowLayoutPanel flowLayoutPanelAsientos;
         private View.AsientoListItem asientoListItem1;
         private Button btnConfirmarLibro;
+        private Button btnVerBlockchain;
     }
 }

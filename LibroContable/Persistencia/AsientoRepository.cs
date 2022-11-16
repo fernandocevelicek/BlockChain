@@ -31,5 +31,10 @@ namespace LibroContable.Persistencia
             return lista;
         }
 
+        public static void Vaciar()
+        {
+            currentIndex = 1;
+            lista = new List<Asiento>();
+        }
     }
 }

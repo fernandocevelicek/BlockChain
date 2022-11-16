@@ -57,5 +57,35 @@ namespace LibroContable
 
             flowLayoutPanelAsientos.Controls.Add(listItem);
         }
+
+        private void btnConfirmarLibro_Click(object sender, EventArgs e)
+        {
+            foreach (Asiento asiento in AsientoRepository.Consultar())
+            {
+                Console.WriteLine(asiento.Concepto);
+            }
+
+            LibroDiario libroDiario = new LibroDiario()
+            {
+                fecha = DateTime.Now,
+                asientos = AsientoRepository.Consultar()
+            };
+
+            Console.WriteLine(libroDiario.asientos.Count);
+
+            LibroDiarioRepository.GuardarEnBlockchain(libroDiario);
+
+            AsientoRepository.Vaciar();
+
+            flowLayoutPanelAsientos.Controls.Clear();
+        }
+
+        private void btnVerBlockchain_Click(object sender, EventArgs e)
+        {
+            BlockchainView blockchainView = new BlockchainView();
+            blockchainView.ShowDialog();
+
+            Iniciar();
+        }
     }
 }
