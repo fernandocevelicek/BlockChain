@@ -1,4 +1,5 @@
 ﻿using Laboratorio3;
+using System;
 using System.Text.Json;
 
 namespace LibroContable
@@ -13,7 +14,8 @@ namespace LibroContable
 
         public BlockChain()
         {
-            if(File.Exists(BASE_PATH + GENESIS_NAME))
+            int cantFiles = Directory.GetFiles(@"/bloques").Length;
+            if (File.Exists(BASE_PATH + GENESIS_NAME))
             {
                 Block genesisBlock = BinarySerialization.ReadFromBinaryFile<Block>(BASE_PATH + GENESIS_NAME);
                 LoadBlockChainFromFileSystem(genesisBlock);
@@ -25,7 +27,9 @@ namespace LibroContable
                 AddGenesisBlock();
             }
 
-            foreach(Block block in Chain)
+            if(cantFiles > Chain.Count) throw new InvalidBlockException("Se perdio un bloque.");
+
+            foreach (Block block in Chain)
             {
                 Console.WriteLine(JsonSerializer.Serialize<Block>(block));
             }
